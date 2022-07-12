@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>AngularJS Plunker</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="css/ng-tags-input.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="js/angular.min.js"></script>
+    <script src="js/ng-tags-input.min.js"></script>
+    <script src="js/app.js"></script>
+
+</head>
+
+<body>
+
+<div class="container container-header">
+    <div class="row">
+        <div class="col-12"><h1>Управление рассылками</h1></div>
+    </div>
+    <div class="row">
+        <div class="col-12 header"><h3>Здравствуйте, Андрей! Выбирите категории писем, от которых хотите отписаться.</h3>
+        </div>
+    </div>
+
+</div>
+
+<div class="container container-main">
+    <div class="row">
+        <div class="col-5 container-headers"><h4>Общие уведомления</h4></div>
+    </div>
+    <div class="row">
+        <div class="col-5">Приветственная серия</div>
+        <div class="col-2">
+            <div class="form-check form-switch">
+                <input class="form-check-input resetable_checkbox" type="checkbox" checked>
+            </div>
+        </div>
+        <div class="col-5">4 полезных и емких письма в течении месяца</div>
+    </div>
+
+    <div class="row">
+        <div class="col-5">Образовательные вебинары</div>
+        <div class="col-2">
+            <div class="form-check form-switch">
+                <input class="form-check-input resetable_checkbox" type="checkbox">
+            </div>
+        </div>
+        <div class="col-5">Бесплатные вебинары проходят 1 раз в 2 недели. Вы будете получать 2 письма с напоминанием
+            о предстоящем вебинаре
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-5"> Личные сообщения</div>
+        <div class="col-2">
+            <div class="form-check form-switch">
+                <input class="form-check-input resetable_checkbox" id="radioBatton" type="checkbox" checked>
+            </div>
+        </div>
+        <div class="col-5">
+            <select class="form-select form-select-lg mb-3 resetable_dropdown" aria-label=".form-select-lg example">
+                <option value="1" selected>Мгновенно</option>
+                <option value="2">Один раз в день</option>
+                <option value="3">Отключить</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-5 container-headers"><h4>Уведомления по сайтам</h4></div>
+    </div>
+
+    <div class="row">
+        <div class="col-5"> Новости</div>
+        <div class="col-2">
+            <div class="form-check form-switch">
+                <input class="form-check-input resetable_checkbox" type="checkbox">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-5 container-headers"><h4>Поисковые агенты</h4></div>
+    </div>
+
+    <div class="row">
+        <div class="col-5">
+            <div>Бизнес</div>
+
+            <div ng-controller="MainCtrl">
+                <tags-input class="bootstrap"
+                            ng-model="movies"
+                            placeholder=""
+                            replace-spaces-with-dashes="false">
+                    <auto-complete source="loadMovies($query)"
+                                   min-length="0"
+                                   debounce-delay="0"
+                                   max-results="3"></auto-complete>
+                </tags-input>
+                <p>Model: {{movies}}</p>
+            </div>
+            <a href="#" class="modal-window" data-bs-toggle="modal" data-bs-target="#modal-details">
+                детали
+            </a>
+
+
+        </div>
+        <div class="col-2">
+            <div class="form-check form-switch">
+                <input class="form-check-input resetable_checkbox" type="checkbox" checked>
+            </div>
+
+
+        </div>
+        <div class="col-5">Поисковый агент присылает 1 письмо в неделю и только при условии что найдены новые
+            площадки
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-5">
+            <div>123</div>
+            <div ng-controller="MainCtrl">
+                <tags-input class="bootstrap"
+                            ng-model="movies"
+                            placeholder=""
+                            replace-spaces-with-dashes="false">
+                    <auto-complete source="loadMovies($query)"
+                                   min-length="0"
+                                   debounce-delay="0"
+                                   max-results="3"></auto-complete>
+                </tags-input>
+                <!--               ч-->
+            </div>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-details">
+                детали
+            </a>
+        </div>
+
+        <div class="col-2">
+            <div class="form-check form-switch">
+                <input class="form-check-input resetable_checkbox" type="checkbox">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-5">
+            <div>SEO</div>
+            <div ng-controller="MainCtrl">
+                <tags-input class="bootstrap"
+                            ng-model="movies"
+                            placeholder=""
+                            replace-spaces-with-dashes="false">
+                    <auto-complete source="loadMovies($query)"
+                                   min-length="0"
+                                   debounce-delay="0"
+                                   max-results="3"></auto-complete>
+                </tags-input>
+                <p>Model: {{movies}}</p>
+            </div>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-details">
+                детали
+            </a>
+
+
+        </div>
+        <div class="col-2">
+            <div class="form-check form-switch">
+                <input class="form-check-input resetable_checkbox" type="checkbox">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-5">
+            <div>Бурж ссылки</div>
+            <div ng-controller="MainCtrl">
+                <tags-input class="bootstrap"
+                            ng-model="movies"
+                            placeholder=""
+                            replace-spaces-with-dashes="false">
+                    <auto-complete source="loadMovies($query)"
+                                   min-length="0"
+                                   debounce-delay="0"
+                                   max-results="3"></auto-complete>
+                </tags-input>
+                <p>Model: {{movies}}</p>
+
+            </div>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-details">
+                детали
+            </a>
+
+
+        </div>
+        <div class="col-2">
+            <div class="form-check form-switch">
+                <input class="form-check-input resetable_checkbox" type="checkbox" id="flexSwitchCheckChecked"
+                       checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-5 container-headers"><h4>Рекламные компании</h4></div>
+    </div>
+
+    <div class="row">
+        <div class="col-5">Строительство домов в Киеве</div>
+        <div class="col-2">
+            <div class="form-check form-switch">
+                <input class="form-check-input resetable_checkbox" type="checkbox" checked>
+            </div>
+        </div>
+        <div class="col-5">
+            <select class="form-select form-select-lg mb-3 resetable_dropdown" aria-label=".form-select-lg example">
+                <option value="1" selected>Мгновенно</option>
+                <option value="2">Один раз в день</option>
+                <option value="3">Отключить</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-5 container-headers">Строительство домов в Киеве</div>
+        <div class="col-2">
+            <div class="form-check form-switch">
+                <input class="form-check-input resetable_checkbox" type="checkbox">
+            </div>
+        </div>
+        <div class="col-5">
+            <select class="form-select form-select-lg mb-3 resetable_dropdown" aria-label=".form-select-lg example">
+                <option value="1" selected>Мгновенно</option>
+                <option value="2">Один раз в день</option>
+                <option value="3">Отключить</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-5 container-headers"><h4>Уведомления по телеграму</h4></div>
+    </div>
+
+    <div class="row">
+        <div class="col-5">Новости</div>
+        <div class="col-2">
+            <div class="form-check form-switch">
+                <input class="form-check-input resetable_checkbox" type="checkbox">
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modal-details" tabindex="-1" aria-labelledby="modal-details-Label"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-details-Label">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <button type="button" id="reset_btn" class="btn btn-primary btn-lg btn-grey">По умолчанию</button>
+        </div>
+        <div class="col-3">
+            <button type="button" id="save_btn" class="btn btn-primary btn-lg btn-save" data-bs-toggle="modal"
+                    data-bs-target="#modal-save">Сохранить изменения
+            </button>
+
+        </div>
+    </div>
+    <!-- Save Modal -->
+    <div class="modal fade" id="modal-save" tabindex="-1" aria-labelledby="modal-save-Label"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-save-Label">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Вы уверены?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="save-btn-close">Нет
+                    </button>
+                    <button type="button" class="btn btn-primary" id="save-btn-confirm">Да</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/index.js"></script>
+
+</body>
+
+</html>
